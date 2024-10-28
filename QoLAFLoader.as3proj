@@ -5,17 +5,18 @@
     <movie outputType="Application" />
     <movie input="" />
     <movie path="bin\QoLAFLoader.swf" />
-    <movie fps="30" />
-    <movie width="800" />
-    <movie height="600" />
-    <movie version="25" />
+    <movie fps="60" />
+    <movie width="1280" />
+    <movie height="720" />
+    <movie version="28" />
     <movie minorVersion="0" />
-    <movie platform="Flash Player" />
-    <movie background="#FFFFFF" />
+    <movie platform="AIR" />
+    <movie background="#000000" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="src" />
+    <class path="assets" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -79,15 +80,17 @@
     <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand />
+  <preBuildCommand>xcopy "$(ProjectDir)\src\application.xml" "$(OutputDir)\" /y</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="False" />
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="Default" />
-    <option testMovieCommand="" />
+    <option testMovie="Custom" />
+    <option testMovieCommand="$(FlexSDK)/bin/adl.exe bin/application.xml" />
   </options>
   <!-- Plugin storage -->
-  <storage />
+  <storage>
+    <entry key="air-descriptor"><![CDATA[src\application.xml]]></entry>
+  </storage>
 </project>
